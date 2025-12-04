@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralph Farah - Computer Science Graduate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f1a;
+            color: white;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #3b82f6, #06b6d4);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating Shapes */
+        .floating-shape {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        .shape1 {
+            width: 100px;
+            height: 100px;
+            background: #8b5cf6;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape2 {
+            width: 150px;
+            height: 150px;
+            background: #ec4899;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .shape3 {
+            width: 80px;
+            height: 80px;
+            background: #06b6d4;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-right: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            padding: 8px 16px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #ec4899;
+            text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+        }
+        
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            border: 3px solid #0f0f1a;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #a1a1aa;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #d4d4d8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #8b5cf6;
+        }
+        
+        .btn-secondary:hover {
+            background: #8b5cf6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-links a:hover {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+        
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            transition: all 0.3s;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* About Section */
+        #about .glass-card {
+            text-align: center;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #d4d4d8;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-item strong {
+            color: #ec4899;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category h3 {
+            color: #ec4899;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, #8b5cf6, #ec4899);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            margin-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 1rem;
+            width: 16px;
+            height: 16px;
+            background: #ec4899;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        
+        .timeline-date {
+            color: #ec4899;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-company {
+            color: #a1a1aa;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .timeline-description {
+            line-height: 1.6;
+            color: #d4d4d8;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ec4899;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-description {
+            color: #d4d4d8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tech-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #d4d4d8;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info-section h3 {
+            color: #ec4899;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        form input,
+        form textarea {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-family: inherit;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        form input::placeholder,
+        form textarea::placeholder {
+            color: #a1a1aa;
+        }
+        
+        form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        form button {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+        }
+        
+        #formStatus {
+            text-align: center;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                padding-left: 1rem;
+            }
+            
+            .timeline-item {
+                margin-left: 1rem;
+            }
+            
+            .timeline-item::before {
+                left: -2rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+        
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="floating-shape shape1"></div>
+    <div class="floating-shape shape2"></div>
+    <div class="floating-shape shape3"></div>
+    
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">RF</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="profile-photo">
+                <img src="images/profile-1718228711615.jpg" alt="Ralph Farah">
+            </div>
+            <h1 class="hero-title">Ralph Farah</h1>
+            <p class="hero-subtitle">Computer Science Graduate</p>
+            <p class="hero-description">
+                I'm a Computer Science graduate with strong expertise in data science and software development, proficient in Python, R, SQL, Java, and C++. I have hands-on experience developing web portals, data interfaces, and financial reporting systems, with a proven track record in both technical implementation and leadership roles. My diverse skill set spans from cybersecurity and penetration testing to frontend development and data visualization.
+            </p>
+            <div class="hero-buttons">
+                <a href="files/resume.pdf" class="btn btn-primary" download>Download Resume</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+            <div class="social-links">
+                <a href="mailto:ralph.farah.career@gmail.com" title="Email">📧</a>
+                <a href="www.linkedin.cordin/ralph-farah-05a60320b/" title="LinkedIn" target="_blank">💼</a>
+                <a href="https://ralphhf.github.io/Ralphhf-RalphFarahPortfolioWebsite.github.io/" title="GitHub" target="_blank">💻</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="glass-card fade-in">
+            <div class="about-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            ralph.farah.career@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            631.710.8938
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Location:</strong><br>
+                            New Brunswick, NJ 08901
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>🎓</span>
+                        <div>
+                            <strong>Education:</strong><br>
+                            Bachelor of Arts (BA) in Computer Science<br>
+                            Rutgers, The State University of New Jersey (2024)
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>
+                        As a recent Computer Science graduate from Rutgers University, I bring a comprehensive skill set that spans multiple domains of technology. My experience ranges from developing robust web portals using .NET MVC framework to implementing sophisticated data interfaces and financial reporting systems.
+                    </p>
+                    <br>
+                    <p>
+                        What sets me apart is my diverse expertise across both technical implementation and leadership roles. I've gained hands-on experience in cybersecurity through extensive training in ethical hacking and penetration testing, while also honing my skills in frontend development with modern frameworks like Angular and React.
+                    </p>
+                    <br>
+                    <p>
+                        My passion lies in leveraging data science and software development to solve real-world problems. Whether it's creating intuitive data visualizations with PowerBI or developing secure, scalable applications, I approach every project with attention to detail and a commitment to excellence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title fade-in">Technical Skills</h2>
+        <div class="skills-grid fade-in">
+            <div class="glass-card skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">PHP</span>
+                </div>
+            </div>
+            <div class="glass-card skill-category">
+                <h3>Web Development</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Angular</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">.NET MVC</span>
+                    <span class="skill-tag">WordPress</span>
+                </div>
+            </div>
+            <div class="glass-card skill-category">
+                <h3>Data Science & Analytics</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">PowerBI</span>
+                    <span class="skill-tag">SSIS</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Seaborn</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">scikit-learn</span>
+                </div>
+            </div>
+            <div class="glass-card skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Kali Linux</span>
+                    <span class="skill-tag">Burp Suite</span>
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">Power Automate</span>
+                    <span class="skill-tag">Visual Studio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title fade-in">Professional Experience</h2>
+        <div class="timeline fade-in">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">May 2024 - Aug 2024</div>
+                    <h3 class="timeline-title">Technical Finance Intern</h3>
+                    <div class="timeline-company">Berkley Custom Insurance Managers</div>
+                    <p class="timeline-description">
+                        Developed comprehensive web portals and data interfaces using .NET MVC framework, enhancing operational efficiency and user experience. Gained extensive expertise in SQL and SSIS for complex data manipulation and transformation processes. Created detailed analytical reports using PowerBI, providing actionable insights for financial decision-making.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">April 2024 - May 2024</div>
+                    <h3 class="timeline-title">Front Developer Intern</h3>
+                    <div class="timeline-company">MindStaq</div>
+                    <p class="timeline-description">
+                        Enhanced technical skills in Angular, TypeScript, and HTML/CSS through intensive project-based learning and real-world application development. Actively participated in Agile development practices, including sprint planning, daily standups, and retrospectives. Engaged in comprehensive code reviews, improving code quality and collaborative development skills.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Sep 2023 - Dec 2023</div>
+                    <h3 class="timeline-title">Cybersecurity Training</h3>
+                    <div class="timeline-company">Semicolon Academy</div>
+                    <p class="timeline-description">
+                        Completed comprehensive cybersecurity training program covering ethical hacking, penetration testing, and advanced defense strategies. Developed expertise in bug bounty hunting methodologies and vulnerability assessment techniques. Gained hands-on experience with industry-standard security tools and frameworks.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Sep 2023 - Dec 2023</div>
+                    <h3 class="timeline-title">Financial Advisor Assistant</h3>
+                    <div class="timeline-company">CFS Tax Consultant</div>
+                    <p class="timeline-description">
+                        Prepared comprehensive materials for client meetings focusing on fixed income products and investment strategies. Gained proficiency in TaxTools and advanced Payroll System operations for efficient client service delivery. Developed advanced skills in Excel and PowerPoint for financial analysis and client presentations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <div class="projects-grid fade-in">
+            <div class="project-card">
+                <h3 class="project-title">Web Portal Development</h3>
+                <p class="project-description">
+                    Developed comprehensive web portals using .NET MVC framework with integrated data interfaces for enhanced user experience and operational efficiency.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">.NET MVC</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Financial Reporting System</h3>
+                <p class="project-description">
+                    Created detailed financial reporting systems using PowerBI and SSIS for data transformation, providing actionable business insights.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PowerBI</span>
+                    <span class="tech-tag">SSIS</span>
+                    <span class="tech-tag">SQL Server</span>
+                    <span class="tech-tag">Data Analysis</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Cybersecurity Tools</h3>
+                <p class="project-description">
+                    Implemented penetration testing and vulnerability assessment tools using Kali Linux and Burp Suite for comprehensive security analysis.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Kali Linux</span>
+                    <span class="tech-tag">Burp Suite</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Security Testing</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Data Visualization Dashboard</h3>
+                <p class="project-description">
+                    Built interactive data visualization dashboards using Python libraries including Pandas, Seaborn, and Matplotlib for comprehensive data analysis.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Seaborn</span>
+                    <span class="tech-tag">Matplotlib</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Frontend Applications</h3>
+                <p class="project-description">
+                    Developed responsive frontend applications using Angular and TypeScript with modern design principles and user experience optimization.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">Responsive Design</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="project-title">Machine Learning Models</h3>
+                <p class="project-description">
+                    Implemented machine learning models using scikit-learn and NumPy for predictive analytics and data-driven decision making.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">ML Algorithms</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title fade-in">Get In Touch</h2>
+        <div class="contact-content fade-in">
+            <div class="contact-info-section">
+                <h3>Let's Connect</h3>
+                <p style="color: #d4d4d8; line-height: 1.6; margin-bottom: 2rem;">
+                    I'm always interested in discussing new opportunities, innovative projects, or potential collaborations. Whether you're looking for a dedicated developer or want to explore how my skills can contribute to your team's success, I'd love to hear from you.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:ralph.farah.career@gmail.com" style="color: #8b5cf6; text-decoration: none;">ralph.farah.career@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            <a href="tel:631.710.8938" style="color: #8b5cf6; text-decoration: none;">631.710.8938</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <div>
+                            <strong>LinkedIn:</strong><br>
+                            <a href="www.linkedin.cordin/ralph-farah-05a60320b/" target="_blank" style="color: #8b5cf6; text-decoration: none;">LinkedIn Profile</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>💻</span>
+                        <div>
+                            <strong>GitHub:</strong><br>
+                            <a href="https://ralphhf.github.io/Ralphhf-RalphFarahPortfolioWebsite.github.io/" target="_blank" style="color: #8b5cf6; text-decoration: none;">GitHub Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card">
+                <form id="contactForm">
+                    <input type="hidden" name="websiteId" value="2a25421c092410cf2f6a95bc13b6173d">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                    <div id="formStatus"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit',async e=>{e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;b.textContent='Sending...';try{const r=await fetch('https://no-website-finder.onrender.com/api/form-submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({websiteId:e.target.querySelector('[name=websiteId]').value,name:e.target.querySelector('[name=name]').value,email:e.target.querySelector('[name=email]').value,phone:'',message:e.target.querySelector('[name=message]').value})});const d=await r.json();document.getElementById('formStatus').textContent=d.success?'✓ Message sent!':'✗ Error';document.getElementById('formStatus').style.color=d.success?'#22c55e':'#ef4444';}catch(err){document.getElementById('formStatus').textContent='✗ Failed';}b.disabled=false;b.textContent='Send Message';});
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Menu Toggle (if needed in future)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any additional initialization code here
+            console.log('Ralph Farah Portfolio Loaded Successfully');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
